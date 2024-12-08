@@ -33,7 +33,7 @@ export default function Brand() {
                 "marginBottom": "46px"
             }}>
                 <div className="col-5 col-xl-3 offset-4 text-center align-self-center">
-                    <h1 className="text-secondary-emphasis">Brand Details updated</h1>
+                    <h1 className="text-secondary-emphasis">Brand Details</h1>
                 </div>
                 <div className="col text-end align-self-center">
                     <a className="btn btn-outline-info btn-lg" role="button" onClick={()=>navigate("createbrand")}>Create New Brand</a></div>
