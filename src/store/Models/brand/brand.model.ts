@@ -1,4 +1,4 @@
-import { Action, Thunk, action, thunk } from "easy-peasy";
+import { Action,  action} from "easy-peasy";
 import { Brand } from "../../interface";
 
 interface BrandState{

@@ -9,19 +9,19 @@ export interface Brand {
 export interface Category
 {
     id?:number,
-   categoryName:string,
-   categoryNameTamil:string
+   categoryName?:string,
+   categoryNameTamil?:string
 }
 export interface Product
 {
     id?:number,
-   productName:string,
-   productNameTamil:string,
-   productQuantity:number,
-   productSellingPrice:number,
-   productCostPrice:number,
-   productBrandName:string,
-   productCategoryName:string
+    productCode?:string,
+    productName?:string,
+    productContent?:string,
+    price?:string,
+    discount?:string,
+    finalPrice?:string,
+    productType?:string
 }
 
 export interface SignUp{

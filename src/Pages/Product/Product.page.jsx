@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useStoreState,useStoreActions } from "../../store/hooks.ts";
 export function Product()
 {
     const [productList,setProductList] = useState([])
     const [responseStatus,setResponseStatus]= useState('')
+    const {category,categoryList}=useStoreState((state)=> state.categoryModel);
     const navigate = useNavigate();
     async function fetchProductDetails(){
-        await axios.get("https://marketbackendgit.onrender.com/product").then(
+        await axios.get("http://localhost:8008/product/get-products-by-type/"+category.categoryName).then(
             res=>{ 
                  setProductList(res.data);
                  setResponseStatus("success");
@@ -40,16 +42,10 @@ export function Product()
                             <div className="row" style={{ margin:"0px", marginRight:"0px", marginBottom:"10px", marginTop:"0px", }}>
                                 <div className="col">
                                     <h5 className="fw-bold text-primary mb-0">{item.productName}</h5>
-                                    <h5 className="fw-bold text-primary mb-0">{item.productNameTn}</h5>
+                                    <h5 className="fw-bold text-primary mb-0">{item.price}</h5>
 
                                 </div>
-                               <p>
-                                <div className="col align-self-center"><select>
-                                        <option value="13">250 g</option>
-                                        <option value="12" selected="">500 g</option>
-                                        <option value="14">1kg</option>
-                                    </select></div>
-                                    </p>
+                              
                             </div>
                             <div className="row" style={{ marginRight:"-20px", marginBottom:"10px", }}>
                                 <div className="col" style={{ background:"#e43c3c", }}><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none">

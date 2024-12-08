@@ -4,13 +4,15 @@ import { useStoreState,useStoreActions } from "../../store/hooks.ts";
 import { useNavigate } from 'react-router-dom';
 const Category = () => {
     const {brand,brandList}=useStoreState((state)=> state.brandModel);
+    
     const navigate = useNavigate();
     const {setBrand,setBrandList} =useStoreActions((actions)=> actions.brandModel)
+    const {setCategory} =useStoreActions((actions)=> actions.categoryModel)
  const [categories,setCategories] = useState([])
 const [responseStatus,setResponseStatus]= useState('')
 
 async function fetchCategoryDetails(){
-    await axios.get("https://marketbackendgit.onrender.com/category").then(
+    await axios.get("http://localhost:8008/product/get-products-list").then(
         res=>{ 
             setCategories(res.data);
              setResponseStatus("success");
@@ -45,10 +47,10 @@ useEffect(()=>{
         {categories.map((category)=>(
         
             <div className="col item"><a href="">
-                    <div className="card border-0 shadow-none">
+                    <div className="card border-0 shadow-none" onClick={()=>{ setCategory({
+   categoryName:category}); navigate("/product"); }}>
                         <div className="card-body text-center d-flex flex-column align-items-center p-0"><img className="rounded-circle mb-3 fit-cover" width="130" height="130" src="assets\img\category\cooking_essentials.jpeg" />
-                            <h5 className="fw-bold text-primary card-title mb-0">{category.categoryName}/ </h5>
-                            <h5 className="fw-bold text-primary card-title mb-0">{category.categoryNameTn}</h5>
+                            <h5 className="fw-bold text-primary card-title mb-0">{category}/ </h5>
                         </div>
                     </div>
                 </a></div>
