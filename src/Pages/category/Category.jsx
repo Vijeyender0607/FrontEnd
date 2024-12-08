@@ -48,7 +48,7 @@ useEffect(()=>{
         
             <div className="col item"><a href="">
                     <div className="card border-0 shadow-none" onClick={()=>{ setCategory({
-   categoryName:category}); navigate("/product"); }}>
+   categoryName:category}); navigate("/Product"); }}>
                         <div className="card-body text-center d-flex flex-column align-items-center p-0"><img className="rounded-circle mb-3 fit-cover" width="130" height="130" src="assets\img\category\cooking_essentials.jpeg" />
                             <h5 className="fw-bold text-primary card-title mb-0">{category}/ </h5>
                         </div>
