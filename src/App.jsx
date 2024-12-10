@@ -10,6 +10,9 @@ import Category from "./Pages/category/Category.jsx";
 import { CreateProduct } from './Pages/Product/CreateProduct.page';
 import { CreateBrand } from './Pages/Brand/Components/CreateBrand.component.jsx';
 import CreateNewCategory from './Pages/category/CreateNewCategory.jsx';
+import MaxHome from './Pages/Home/MaxHome.page.jsx';
+import Services from './Pages/Services/Services.page.jsx';
+import About from './Pages/About/About.page.jsx';
 
 function App() {
   return (
@@ -18,7 +21,9 @@ function App() {
       <Applayout>
         <Suspense >
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<MaxHome />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
             <Route path="/brand" element={<Brand />} />
             <Route path="/category" element={<Category />} />
             <Route path="category/createcategory" element={<CreateNewCategory />} />

@@ -35,13 +35,12 @@ useEffect(()=>{
     <section className="photo-gallery">
         
     <div className="container">
-            <div className="row mb-3" style={{ marginLeft:"0px", }}>
-            <div className="col-8 col-md-8 col-xl-10 text-center" style={{ marginRight:"0px", }}>
-                <h2>Category</h2>
-                <p className="w-lg-50">Here You can find the groups of products that meet a similar consumer need or that can substitute for each</p>
+    <div className="row mb-5">
+                <div className="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2>Category</h2>
+                    <p className="w-lg-50">Here You can find the groups of products that meet a similar consumer need or that can substitute for each</p>
+                </div>  <div className="col text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" onClick={()=>navigate("createproduct")}>Create New Category</a></div>
             </div>
-            <div className="col-auto col-md-8 col-xl-1 text-center align-self-center" style={{ marginRight:"0px", }}><a className="btn btn-outline-info btn-lg" role="button" onClick={()=> navigate("/category/createCategory")}>Create New Category</a></div>
-        </div>
         
         <div className="row gx-2 gy-2 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
         {categories.map((category)=>(
@@ -50,7 +49,7 @@ useEffect(()=>{
                     <div className="card border-0 shadow-none" onClick={()=>{ setCategory({
    categoryName:category}); navigate("/Product",{ replace: true }); }}>
                         <div className="card-body text-center d-flex flex-column align-items-center p-0"><img className="rounded-circle mb-3 fit-cover" width="130" height="130" src="assets\img\category\cooking_essentials.jpeg" />
-                            <h5 className="fw-bold text-primary card-title mb-0">{category}/ </h5>
+                            <h5 className="fw-bold text-primary card-title mb-0">{category} </h5>
                         </div>
                     </div>
                 </a></div>
