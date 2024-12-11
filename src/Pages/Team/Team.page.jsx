@@ -9,7 +9,7 @@ export default function Team(){
                 <div className="col-sm-4">
                     <div className="team-member"><img className="rounded-circle mx-auto" src={prasath} />
                         <h4>Prasath</h4>
-                        <p className="text-muted">Front End Developer</p>
+                        <p className="text-muted">Developer</p>
                         <ul className="list-inline social-buttons">
                             <li className="list-inline-item"><a href="#"><i className="fa fa-twitter" /></a></li>
                             <li className="list-inline-item"><a href="#"><i className="fa fa-facebook" /></a></li>
@@ -20,7 +20,7 @@ export default function Team(){
                 <div className="col-sm-4">
                     <div className="team-member"><img className="rounded-circle mx-auto" src={yogesh} />
                         <h4>Yogesh</h4>
-                        <p className="text-muted">Front End Developer</p>
+                        <p className="text-muted">Developer</p>
                         <ul className="list-inline social-buttons">
                             <li className="list-inline-item"><a href="#"><i className="fa fa-twitter" /></a></li>
                             <li className="list-inline-item"><a href="#"><i className="fa fa-facebook" /></a></li>
@@ -31,7 +31,7 @@ export default function Team(){
                 <div className="col-sm-4">
                     <div className="team-member"><img className="rounded-circle mx-auto" src={vijey} />
                         <h4>Vijeyender</h4>
-                        <p className="text-muted">Full-Stack Developer</p>
+                        <p className="text-muted">Developer</p>
                         <ul className="list-inline social-buttons">
                             <li className="list-inline-item"><a href="#"><i className="fa fa-twitter" /></a></li>
                             <li className="list-inline-item"><a href="#"><i className="fa fa-facebook" /></a></li>
