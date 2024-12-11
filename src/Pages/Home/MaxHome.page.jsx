@@ -16,8 +16,8 @@ export default function MaxHome(){
         </div>
     </header>
     <Services />
-    <About />
     <Portfolio />
+    <About />
     <Team />
     <Contact />
     </>
