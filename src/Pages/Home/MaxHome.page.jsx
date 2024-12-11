@@ -1,6 +1,7 @@
 import headerimage from '../../assets/img/header-bg.jpg';
 import About from '../About/About.page';
 import Contact from '../Contact/Contact.page';
+import Portfolio from '../Portfolio/Portfolio.page';
 import Services from '../Services/Services.page';
 import Team from '../Team/Team.page';
 export default function MaxHome(){
@@ -16,6 +17,7 @@ export default function MaxHome(){
     </header>
     <Services />
     <About />
+    <Portfolio />
     <Team />
     <Contact />
     </>
