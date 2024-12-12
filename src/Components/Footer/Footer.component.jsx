@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Footer(){
+    const navigate = useNavigate();
     return (
         <footer>
         <div className="container">
@@ -13,8 +16,7 @@ export default function Footer(){
                 </div>
                 <div className="col-md-4">
                     <ul className="list-inline quicklinks">
-                        <li className="list-inline-item"><a href="#">Privacy Policy</a></li>
-                        <li className="list-inline-item"><a href="#">Terms of Use</a></li>
+                        <li className="list-inline-item"><a href="" onClick={()=> navigate("/privacyPolicy")}>Privacy Policy and Terms of Use</a></li>
                     </ul>
                 </div>
             </div>

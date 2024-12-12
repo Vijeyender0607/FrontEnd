@@ -1,5 +1,26 @@
+import { useState } from 'react';
 import mapImage from '../../assets/img/map-image.png'
 export default function Contact(){
+    const [userinfo,setUserInfo] = useState({
+        username: '',
+        email: '',
+        phone: '',
+        message: ''
+     })
+     function handleForm(e){
+        setUserInfo({
+        username: e.target[0].value,
+        email: e.target[1].value,
+        phone: e.target[2].value,
+        message: e.target[3].value
+        })
+        var body=JSON.stringify(userinfo).replaceAll("{",'').replaceAll("}",''). replaceAll(',','%0A')
+        location.href='mailto:maxbussinesssolutions@gmail.com?subject=from max-it-solutions&body=Hello%20'+'%0A'+body+'!'
+        console.log(userinfo)
+     }
+
+    //  'maxbussinesssolutions@gmail.com?subject=from max-it-solutions&body='+userinfo
+     
     return (
         <section id="contact" style={{
             backgroundImage : `url(${mapImage})`
@@ -13,11 +34,11 @@ export default function Contact(){
             </div>
             <div className="row">
                 <div className="col-lg-12">
-                    <form id="contactForm" name="contactForm">
+                    <form id="contactForm" name="contactForm" onSubmit={(e)=>handleForm(e)}>
                         <div className="row">
                             <div className="col-md-6">
-                                <div className="form-group mb-3"><input className="form-control" type="text" id="name" placeholder="Your Name *" required="" /><small className="form-text text-danger flex-grow-1 lead" /></div>
-                                <div className="form-group mb-3"><input className="form-control" type="email" id="email" placeholder="Your Email *" required="" /><small className="form-text text-danger lead" /></div>
+                                <div className="form-group mb-3"><input className="form-control"  type="text" id="name" placeholder="Your Name *" required="" /><small className="form-text text-danger flex-grow-1 lead" /></div>
+                                <div className="form-group mb-3"><input className="form-control"  type="email" id="email" placeholder="Your Email *" required="" /><small className="form-text text-danger lead" /></div>
                                 <div className="form-group mb-3"><input className="form-control" type="tel" placeholder="Your Phone *" required="" /><small className="form-text text-danger lead" /></div>
                             </div>
                             <div className="col-md-6">

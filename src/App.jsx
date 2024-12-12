@@ -13,6 +13,7 @@ import CreateNewCategory from './Pages/category/CreateNewCategory.jsx';
 import MaxHome from './Pages/Home/MaxHome.page.jsx';
 import Services from './Pages/Services/Services.page.jsx';
 import About from './Pages/About/About.page.jsx';
+import Privacy from './Pages/PrivacyPolicy/Privacy.page.jsx';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="product/createproduct" element={<CreateProduct />} />
             <Route path="product/editproduct" element={<CreateProduct />} />
             <Route path="brand/createbrand" element={<CreateBrand />} />
+            <Route path="/privacyPolicy" element={<Privacy />} />
           </Routes>
         </Suspense>
       </Applayout>
