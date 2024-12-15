@@ -15,7 +15,7 @@ const sendMessage = async () => {
     };
     const config = {
         headers: {
-            'Authorization': 'Bearer EAAOBJEGgsqIBO7oC95fZCHjopZB7pNOb0ZCvRZCosVX8OSQRuzaG3XUfnPwkZAC847y84ZAjnQaFNT5KKF8EyLIRvZBShYacCmmaoh3ps2W2wgTWkJeu9ACq0CLX7asJ8UandP6nQ33V7KLEPaUlZBV3ce8ZCWgaPdUSIbNFIshZBlGb34YLeYYPWBlN4RQO7Tpy8KjFIxekvX90wmlAElZCVOEzobBUvA5oZCDhZCCMZD',
+            'Authorization': 'Bearer EAAOBJEGgsqIBO3SMWgdX81yfDqiaHE5gqjxhpI5Jwfi6TjmhedDwDeXwpu52ZCNAfFWPZCHiNOs94Tnk9sZAfPDBXdwJLAbPeZAH1lo36rw5GHz0yACYiU4ulMPoywTopZAretnNpVP1u2I9hAqqQQRw8uZBZBnx4FaLt78vqj8S261x2PQW2CZCDmSWbRfSmnJcWAZDZD',
             'Content-Type': 'application/json'
         }
     };
