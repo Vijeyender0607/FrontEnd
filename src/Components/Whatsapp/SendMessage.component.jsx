@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const sendMessage = async () => {
+const sendMessage = async (props) => {
     const url = 'https://graph.facebook.com/v21.0/489631117569171/messages';
     const data = {
         messaging_product: 'whatsapp',
-        to: '919952316734',
+        to: '91'+props.phone,
         type: 'template',
         template: {
             name: 'hello_world',
@@ -15,7 +15,7 @@ const sendMessage = async () => {
     };
     const config = {
         headers: {
-            'Authorization': 'Bearer EAAOBJEGgsqIBO3SMWgdX81yfDqiaHE5gqjxhpI5Jwfi6TjmhedDwDeXwpu52ZCNAfFWPZCHiNOs94Tnk9sZAfPDBXdwJLAbPeZAH1lo36rw5GHz0yACYiU4ulMPoywTopZAretnNpVP1u2I9hAqqQQRw8uZBZBnx4FaLt78vqj8S261x2PQW2CZCDmSWbRfSmnJcWAZDZD',
+            'Authorization': 'Bearer token',
             'Content-Type': 'application/json'
         }
     };

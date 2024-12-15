@@ -20,7 +20,12 @@ export default function Contact(){
         var body=JSON.stringify(userinfo).replaceAll("{",'').replaceAll("}",''). replaceAll(',','%0A')
         // location.href='mailto:maxbussinesssolutions@gmail.com?subject=from max-it-solutions&body=Hello%20'+'%0A'+body+'!'
         console.log(userinfo)
-        sendMessage();
+        sendMessage({
+            username: e.target[0].value,
+            email: e.target[1].value,
+            phone: e.target[2].value,
+            message: e.target[3].value
+            });
 
      }
      
