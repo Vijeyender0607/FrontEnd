@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import mapImage from '../../assets/img/map-image.png'
+import axios from 'axios';
+import sendMessage from '../../Components/Whatsapp/SendMessage.component';
 export default function Contact(){
     const [userinfo,setUserInfo] = useState({
         username: '',
@@ -7,6 +9,7 @@ export default function Contact(){
         phone: '',
         message: ''
      })
+
      function handleForm(e){
         setUserInfo({
         username: e.target[0].value,
@@ -15,12 +18,13 @@ export default function Contact(){
         message: e.target[3].value
         })
         var body=JSON.stringify(userinfo).replaceAll("{",'').replaceAll("}",''). replaceAll(',','%0A')
-        location.href='mailto:maxbussinesssolutions@gmail.com?subject=from max-it-solutions&body=Hello%20'+'%0A'+body+'!'
+        // location.href='mailto:maxbussinesssolutions@gmail.com?subject=from max-it-solutions&body=Hello%20'+'%0A'+body+'!'
         console.log(userinfo)
-     }
+        sendMessage();
 
-    //  'maxbussinesssolutions@gmail.com?subject=from max-it-solutions&body='+userinfo
+     }
      
+
     return (
         <section id="contact" style={{
             backgroundImage : `url(${mapImage})`
