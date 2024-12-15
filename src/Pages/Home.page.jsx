@@ -42,7 +42,7 @@ const Home = () => {
   return (
     
     
-    <div className="container">
+    <div className="container" style={{paddingTop: '12rem'}}>
     <div className="row">
         <div className="col-md-8 col-xl-6 text-center mx-auto">
             <h2>Water</h2>

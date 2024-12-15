@@ -26,7 +26,7 @@ export function Product()
       return(
         <>
        <section id="products" className="photo-gallery py-4 py-xl-5">
-        <div className="container">
+        <div className="container" style={{paddingTop: '12rem'}}>
           
             <div className="row mb-5">
                 <div className="col-md-8 col-xl-6 text-center mx-auto">
