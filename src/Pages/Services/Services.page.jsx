@@ -21,6 +21,8 @@ export default function Services(){
                     <h4 className="section-heading">Postgres Sql</h4>
                     <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
+
+                
             </div>
         </div>
     </section>
