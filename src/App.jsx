@@ -23,7 +23,7 @@ function App() {
       <Applayout>
         <Suspense >
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<MaxHome />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/brand" element={<Brand />} />
