@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const sendMessage = async (props) => {
-    console.log(import.meta.env.VITE_API_WhatsappKadvusol)
-    const token=import.meta.env.VITE_API_WhatsappKadvusol;
+    console.log(import.meta.env.WhatsappKadvusol)
+    const token=import.meta.env.WhatsappKadvusol;
     const url = 'https://graph.facebook.com/v21.0/489631117569171/messages';
     const data = {
         messaging_product: 'whatsapp',
