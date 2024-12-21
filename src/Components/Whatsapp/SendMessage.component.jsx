@@ -4,7 +4,7 @@ const sendMessage = async (props) => {
 
     
     console.log(import.meta.env.VITE_APP_YOUR_KEY)
-    console.log('API URL:', import.meta.env.VITE_API_URL);
+    console.log('API URL:', import.meta.env.VITE_API_WA);
     const token=import.meta.env.VITE_APP_YOUR_KEY
 
     const url = 'https://graph.facebook.com/v21.0/489631117569171/messages';
