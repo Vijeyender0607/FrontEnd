@@ -3,8 +3,8 @@ import axios from 'axios';
 const sendMessage = async (props) => {
 
     
-    console.log(import.meta.env.VITE_VERCEL_ENV_WA)
-    const token=import.meta.env.VITE_VERCEL_ENV_WA
+    console.log(import.meta.env.VITE_APP_WA)
+    const token=import.meta.env.VITE_APP_WA
 
     const url = 'https://graph.facebook.com/v21.0/489631117569171/messages';
     const data = {
