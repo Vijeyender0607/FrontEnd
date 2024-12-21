@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const sendMessage = async (props) => {
+    const token=process.env.WhatsappKadvusol;
     const url = 'https://graph.facebook.com/v21.0/489631117569171/messages';
     const data = {
         messaging_product: 'whatsapp',
@@ -15,7 +16,7 @@ const sendMessage = async (props) => {
     };
     const config = {
         headers: {
-            'Authorization': 'Bearer token',
+            'Authorization': 'Bearer token'+token,
             'Content-Type': 'application/json'
         }
     };

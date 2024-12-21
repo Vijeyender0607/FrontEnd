@@ -14,6 +14,7 @@ import MaxHome from './Pages/Home/MaxHome.page.jsx';
 import Services from './Pages/Services/Services.page.jsx';
 import About from './Pages/About/About.page.jsx';
 import Privacy from './Pages/PrivacyPolicy/Privacy.page.jsx';
+import PdfGenerator from './Pages/PdfGenerator/PdfGenerator.page.jsx';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <Applayout>
         <Suspense >
           <Routes>
-            <Route path="/" element={<MaxHome />} />
+            <Route path="/" element={<PdfGenerator />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/brand" element={<Brand />} />

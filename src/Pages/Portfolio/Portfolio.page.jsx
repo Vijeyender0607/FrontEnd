@@ -1,9 +1,11 @@
+
 import image1 from '../../assets/img/portfolio/1-thumbnail.jpg'
 import image2 from '../../assets/img/portfolio/2-thumbnail.jpg'
 import image3 from '../../assets/img/portfolio/3-thumbnail.jpg'
 import image4 from '../../assets/img/portfolio/4-thumbnail.jpg'
 import image5 from '../../assets/img/portfolio/5-thumbnail.jpg'
 import image6 from '../../assets/img/portfolio/6-thumbnail.jpg'
+
 export default function Portfolio(){
     return (
         <section  id="portfolio">
