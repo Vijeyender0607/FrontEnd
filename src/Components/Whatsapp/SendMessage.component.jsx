@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const sendMessage = async (props) => {
 
-    
+    console.log("hello")
     console.log(import.meta.env.VITE_APP_YOUR_KEY)
     console.log('API URL:', import.meta.env.VITE_API_WA);
     const token=import.meta.env.VITE_API_WA
