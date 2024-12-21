@@ -9,6 +9,8 @@ const apiUrl = process.env.VITE_API_URL;
 const apiKey = process.env.VITE_API_KEY;
 const useLegacy = process.env.VITE_USE_LEGACY === 'true';
 const port = parseInt(process.env.VITE_PORT, 10) || 3000;
+const nn=process.env.VITE_API_WA;
+console.log("print"+nn)
 
 export default defineConfig({
     plugins: [
