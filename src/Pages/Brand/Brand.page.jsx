@@ -12,7 +12,7 @@ export default function Brand() {
     const {setBrand,setBrandList} =useStoreActions((actions)=> actions.brandModel)
 
     async function fetchBrandDetails() {
-        await axios.get("https://marketbackendgit.onrender.com/brand").then(
+        await axios.get("http://localhost:8080/brand").then(
             res => {
                 setBrandList(res.data);
                 setResponseStatus("success");
@@ -28,12 +28,12 @@ export default function Brand() {
     }, [setBrandList])
 
     return (
-        <div className="container">
+        <div className="container" style={{paddingTop:'10rem'}}>
             <div className="row mb-5">
                 <div className="col-md-8 col-xl-6 text-center mx-auto">
                     <h2>Brand</h2>
                     <p className="w-lg-50">Here You can find the groups of products that meet a similar consumer need or that can substitute for each</p>
-                </div>  <div className="col text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" onClick={()=>navigate("createproduct")}>Create New Brand</a></div>
+                </div>  <div className="col text-end align-self-center"><a className="btn btn-outline-info btn-lg" role="button" onClick={()=>navigate("/createBrand")}>Create New Brand</a></div>
             </div>
             {responseStatus === "failed" ? <h1> Not able to fetch brand details</h1> :
                 <div className="row gy-4 row-cols-1 row-cols-sm-2 row-cols-lg-3 mb-3">

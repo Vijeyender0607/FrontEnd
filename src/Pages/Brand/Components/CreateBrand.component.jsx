@@ -11,7 +11,7 @@ export function CreateBrand() {
     })
     const [responseStatus,setResponseStatus]= useState('')
     async function Create(){
-        await axios.post("https://marketbackendgit.onrender.com/brand/createbrand",brand).then(
+        await axios.post("http://localhost:8080/brand/createbrand",brand).then(
             res => {
                 setResponseStatus("success");
             }
@@ -39,7 +39,7 @@ export function CreateBrand() {
         }
     }
     return <>
-        <div className="row">
+        <div className="row" style={{paddingTop:'12rem'}}>
             <div className="col">
                 <h1 className="text-secondary-emphasis" style={{
                     "textAlign": "center"

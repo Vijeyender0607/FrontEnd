@@ -23,9 +23,10 @@ function App() {
       <Applayout>
         <Suspense >
           <Routes>
-            <Route path="/" element={<MaxHome />} />
+            <Route path="/" element={<Brand />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
+            <Route path="/createBrand" element={<CreateBrand />} />
             <Route path="/brand" element={<Brand />} />
             <Route path="/category" element={<Category />} />
             <Route path="category/createcategory" element={<CreateNewCategory />} />
