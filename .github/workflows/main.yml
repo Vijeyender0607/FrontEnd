@@ -24,7 +24,7 @@ jobs:
         with:
           domain: maxitsolutions.in
           source-path: dist
-          host: 147.93.31.81
-          port: 3000
-          username: maxbussinesssolutions@gmail.com
+          host: srv688052.hstgr.cloud
+          port: 22
+          username: root
           password: Hostinger@0607
