@@ -6,27 +6,25 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Build project
         run: npm run build
 
-      - name: Deploy to Hostinger
-        uses: kitconcept/docker-stack-deploy@v1.0.1
+      - name: Upload files to Hostinger
+        uses: mradilla/hostinger-deploy@v1
         with:
-          server: srv688052.hstgr.cloud
+          domain: maxitsolutions.in
+          source-path: dist
+          host: srv688052.hstgr.cloud
+          port: 3000
           username: maxbussinesssolutions@gmail.com
           password: Hostinger@0607
-          domain: maxitsolutions.in
-          folder: build
-
-
-          
