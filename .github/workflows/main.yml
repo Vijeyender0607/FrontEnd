@@ -40,7 +40,7 @@ jobs:
           username: maxbussinesssolutions@gmail.com
           password: Hostinger@0607
           script: |
-            cd /path/to/your/app
+            cd /usr/share/nginx/html/
             docker-compose down
             docker-compose pull
             docker-compose up -d
