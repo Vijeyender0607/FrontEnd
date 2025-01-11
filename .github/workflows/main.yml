@@ -41,7 +41,9 @@ jobs:
           username: root
           password: Hostinger@0607
           script: |
-            cd /usr/share/nginx/html/
-            docker-compose down
-            docker-compose pull
-            docker-compose up -d
+            echo "Starting deployment..."
+            cd /usr/share/nginx/html/ || exit
+            docker-compose down || echo "Failed to stop existing containers"
+            docker-compose pull || echo "Failed to pull latest images"
+            docker-compose up -d || echo "Failed to start containers"
+            echo "Deployment finished."
