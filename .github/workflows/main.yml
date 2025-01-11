@@ -37,8 +37,8 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
-          username: $(echo $HOSTINGER_USER | base64 -d)
-          password: $(echo $HOSTINGER_PASSWORD | base64 -d)
+          username: maxbussinesssolutions@gmail.com
+          password: Hostinger@0607
           script: |
             cd /path/to/your/app
             docker-compose down
