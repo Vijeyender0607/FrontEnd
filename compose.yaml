@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  vite-react-app:
+    image: your_dockerhub_username/my-react-app:latest
+    ports:
+      - "3000:80"
