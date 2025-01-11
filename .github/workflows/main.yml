@@ -16,7 +16,7 @@ jobs:
       - name: List files for debugging
         run: |
           ls -la
-          cat compose.yml  # Display contents to confirm it's not empty
+          cat compose.yaml  # Display contents to confirm it's not empty
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -46,7 +46,7 @@ jobs:
           host: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USER }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
-          source: ./compose.yml
+          source: ./compose.yaml
           target: /home/user/my-react-app/
 
       - name: SSH into Hostinger and deploy
