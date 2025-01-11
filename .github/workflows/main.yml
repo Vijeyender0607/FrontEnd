@@ -33,7 +33,7 @@ jobs:
         env:
           HOSTINGER_USER: ${{ secrets.HOSTINGER_USER_BASE64 }}
           HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD_BASE64 }}
-        uses: mradilla/hostinger-deploy@v1
+        uses: appleboy/ssh-action@master
         with:
           domain: maxitsolutions.in
           host: srv688052.hstgr.cloud
