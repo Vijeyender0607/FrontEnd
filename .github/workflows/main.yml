@@ -21,7 +21,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          echo $DOCKER_USERNAME | base64 -d | docker login -u $(cat -) -p $(echo $DOCKER_PASSWORD | base64 -d)
+          echo $DOCKER_USERNAME | docker login -u $(cat -) -p $(echo $DOCKER_PASSWORD )
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
