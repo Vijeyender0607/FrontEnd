@@ -13,15 +13,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: List files for debugging
+        run: |
+          ls -la
+          cat compose.yaml  # Display contents to confirm it's not empty
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
       - name: Log in to Docker Hub
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: |
-          echo $DOCKER_USERNAME | docker login -u $(cat -) -p $(echo $DOCKER_PASSWORD )
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
@@ -29,21 +34,30 @@ jobs:
           push: true
           tags: maxbussinesssolutions/myreactapp:latest
 
-      - name: SSH into Hostinger and deploy
-        env:
-          HOSTINGER_USER: ${{ secrets.HOSTINGER_USER_BASE64 }}
-          HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD_BASE64 }}
-        uses: appleboy/ssh-action@master
+      - name: Decode Hostinger credentials
+        id: decode-hostinger
+        run: |
+          echo "${{ secrets.HOSTINGER_USER }}" | base64 --decode > hostinger_user.txt
+          echo "${{ secrets.HOSTINGER_PASSWORD }}" | base64 --decode > hostinger_password.txt
+
+      - name: Copy docker-compose.yml to server
+        uses: appleboy/scp-action@master
         with:
-          domain: maxitsolutions.in
-          host: srv688052.hstgr.cloud
-          port: 22
+          host: ${{ secrets.HOSTINGER_HOST }}
           username: root
           password: Hostinger@0607
+          source: ./compose.yaml
+          target: /home/user/myreactapp/
+
+      - name: SSH into Hostinger and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: root
+          password: Hostinger@0607
+          port: 22
           script: |
-            echo "Starting deployment..."
-            cd /usr/share/nginx/html/ || exit
-            docker-compose down || echo "Failed to stop existing containers"
-            docker-compose pull || echo "Failed to pull latest images"
-            docker-compose up -d || echo "Failed to start containers"
-            echo "Deployment finished."
+            cd /home/user/myreactapp
+            docker-compose down
+            docker-compose pull
+            docker-compose up -d
