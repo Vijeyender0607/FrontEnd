@@ -73,5 +73,7 @@ jobs:
           script: |
             cd /home/user/frontEnd
             docker-compose down
+            docker volume prune -f
+            docker network prune -f
             docker-compose pull
             docker-compose up -d
