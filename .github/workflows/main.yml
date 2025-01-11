@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.HOSTINGER_USER }}
           password: Hostinger@0607
           source: ./docker-compose.yml
-          target: /home/user/my-react-app/
+          target: /home/user/myreactapp/
 
       - name: SSH into Hostinger and deploy
         env:
