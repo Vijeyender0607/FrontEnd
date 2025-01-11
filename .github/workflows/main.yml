@@ -34,14 +34,12 @@ jobs:
         env:
           HOSTINGER_USER: ${{ secrets.HOSTINGER_USER_BASE64 }}
           HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD_BASE64 }}
-        uses: mradilla/hostinger-deploy@v1
+        uses: appleboy/ssh-action@master
         with:
-          domain: maxitsolutions.in
-          source-path: /usr/share/nginx/html/
-          host: srv688052.hstgr.cloud
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: maxbussinesssolutions@gmail.com
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: 22
-          username: root
-          password: Hostinger@0607
           script: |
             cd /usr/share/nginx/html/
             docker-compose down
