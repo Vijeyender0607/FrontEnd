@@ -22,7 +22,6 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           echo $DOCKER_USERNAME | docker login -u $(cat -) -p $(echo $DOCKER_PASSWORD )
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
@@ -34,12 +33,13 @@ jobs:
         env:
           HOSTINGER_USER: ${{ secrets.HOSTINGER_USER_BASE64 }}
           HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD_BASE64 }}
-        uses: appleboy/ssh-action@master
+        uses: mradilla/hostinger-deploy@v1
         with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: maxbussinesssolutions@gmail.com
-          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          domain: maxitsolutions.in
+          host: srv688052.hstgr.cloud
           port: 22
+          username: root
+          password: Hostinger@0607
           script: |
             cd /usr/share/nginx/html/
             docker-compose down
