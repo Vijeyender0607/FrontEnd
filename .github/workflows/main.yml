@@ -32,7 +32,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: your_dockerhub_username/my-react-app:latest
+          tags: maxbussinesssolutions/myreactapp:latest
 
       - name: Decode Hostinger credentials
         id: decode-hostinger
@@ -47,7 +47,7 @@ jobs:
           username: ${{ secrets.HOSTINGER_USER }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           source: ./compose.yaml
-          target: /home/user/my-react-app/
+          target: /home/user/myreactapp/
 
       - name: SSH into Hostinger and deploy
         uses: appleboy/ssh-action@master
@@ -57,7 +57,7 @@ jobs:
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: 22
           script: |
-            cd /home/user/my-react-app
+            cd /home/user/myreactapp
             docker-compose down
             docker-compose pull
             docker-compose up -d
