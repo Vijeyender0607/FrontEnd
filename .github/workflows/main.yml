@@ -36,8 +36,11 @@ jobs:
           HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD_BASE64 }}
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: maxbussinesssolutions@gmail.com
+          domain: maxitsolutions.in
+          source-path: /usr/share/nginx/html/
+          host: srv688052.hstgr.cloud
+          port: 22
+          username: root
           password: Hostinger@0607
           script: |
             cd /usr/share/nginx/html/
