@@ -20,8 +20,6 @@ RUN npm run build
 FROM nginx:alpine
 COPY --from=0 /app/dist /usr/share/nginx/html
 
-# Copy the NGINX configuration file 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose the port Nginx is serving on
 EXPOSE 80
