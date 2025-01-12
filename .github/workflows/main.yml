@@ -34,30 +34,46 @@ jobs:
           push: true
           tags: maxbussinesssolutions/myreactapp:latest
 
-      - name: Decode Hostinger credentials
-        id: decode-hostinger
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Check and Install Docker Compose
         run: |
-          echo "${{ secrets.HOSTINGER_USER }}" | base64 --decode > hostinger_user.txt
-          echo "${{ secrets.HOSTINGER_PASSWORD }}" | base64 --decode > hostinger_password.txt
+          if ! [ -x "$(command -v docker-compose)" ]; then
+            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
+          else
+            echo "Docker Compose is already installed"
+          fi
+
+      - name: Create Directory on Server
+        run: |
+          sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }} "mkdir -p /home/user/frontEnd"
+        env:
+          HOSTINGER_USER: ${{ secrets.HOSTINGER_USER }}
+          HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
+          HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD }}
 
       - name: Copy docker-compose.yml to server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
-          username: root
-          password: Hostinger@0607
+          username: ${{ secrets.HOSTINGER_USER }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
           source: ./compose.yaml
-          target: /home/user/myreactapp/
+          target: /home/user/frontEnd/
 
       - name: SSH into Hostinger and deploy
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
-          username: root
-          password: Hostinger@0607
+          username: ${{ secrets.HOSTINGER_USER }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: 22
           script: |
-            cd /home/user/myreactapp
+            cd /home/user/frontEnd
             docker-compose down
+            docker volume prune -f
+            docker network prune -f
             docker-compose pull
             docker-compose up -d
