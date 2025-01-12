@@ -54,13 +54,15 @@ jobs:
           HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
           HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD }}
 
-      - name: Copy docker-compose.yml to server
+      - name: Copy files to server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USER }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
-          source: ./compose.yaml
+          source: |
+            ./compose.yaml
+            ./nginx.conf
           target: /home/user/frontEnd/
 
       - name: SSH into Hostinger and deploy
