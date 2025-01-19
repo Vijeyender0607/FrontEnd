@@ -12,7 +12,7 @@ const Category = () => {
 const [responseStatus,setResponseStatus]= useState('')
 
 async function fetchCategoryDetails(){
-    await axios.get("http://localhost:8008/product/get-products-list").then(
+    await axios.get("http://srv688052.hstgr.cloud:8008/product/get-products-list").then(
         res=>{ 
             setCategories(res.data);
              setResponseStatus("success");

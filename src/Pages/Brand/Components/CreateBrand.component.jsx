@@ -11,7 +11,7 @@ export function CreateBrand() {
     })
     const [responseStatus,setResponseStatus]= useState('')
     async function Create(){
-        await axios.post("http://localhost:8080/brand/createbrand",brand).then(
+        await axios.post("http://srv688052.hstgr.cloud:8080/brand/createbrand",brand).then(
             res => {
                 setResponseStatus("success");
             }

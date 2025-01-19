@@ -12,7 +12,7 @@ export default function Brand() {
     const {setBrand,setBrandList} =useStoreActions((actions)=> actions.brandModel)
 
     async function fetchBrandDetails() {
-        await axios.get("http://localhost:8080/brand").then(
+        await axios.get("http://srv688052.hstgr.cloud:8080/brand").then(
             res => {
                 setBrandList(res.data);
                 setResponseStatus("success");

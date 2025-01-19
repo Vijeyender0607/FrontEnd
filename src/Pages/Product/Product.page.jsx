@@ -9,7 +9,7 @@ export function Product()
     const {category,categoryList}=useStoreState((state)=> state.categoryModel);
     const navigate = useNavigate();
     async function fetchProductDetails(){
-        await axios.get("http://localhost:8008/product/get-products-by-type/"+category.categoryName).then(
+        await axios.get("http://srv688052.hstgr.cloud:8008/product/get-products-by-type/"+category.categoryName).then(
             res=>{ 
                  setProductList(res.data);
                  setResponseStatus("success");
