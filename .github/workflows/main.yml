@@ -53,13 +53,13 @@ jobs:
 
       - name: Transfer Docker Compose file
         run: |
-          sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" scp -o StrictHostKeyChecking=no compose.yml ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:/home/user/frontEnd/compose.yml
+          sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" scp -o StrictHostKeyChecking=no compose.yaml ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:/home/user/frontEnd/compose.yaml
           sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" scp -o StrictHostKeyChecking=no Dockerfile ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:/home/user/frontEnd/Dockerfile
-           sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" scp -o StrictHostKeyChecking=no nginx.conf ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:/home/user/frontEnd/nginx.conf
+          sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" scp -o StrictHostKeyChecking=no nginx.conf ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:/home/user/frontEnd/nginx.conf
         env:
           HOSTINGER_USER: ${{ secrets.HOSTINGER_USER }}
           HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
-          HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD }
+          HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD }}
 
       - name: Move nginx.conf to correct location
         uses: appleboy/ssh-action@master
