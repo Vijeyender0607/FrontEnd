@@ -49,7 +49,7 @@ jobs:
 
       - name: Create Directory on Server
         run: |
-          sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }} "mkdir -p /home/user/frontEnd"
+          sshpass -p "Hostinger@0607" ssh -o StrictHostKeyChecking=no admin@147.93.31.81 "mkdir -p /home/user/frontEnd"
 
       - name: Transfer Docker Compose file
         run: |
