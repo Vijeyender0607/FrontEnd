@@ -55,22 +55,22 @@ jobs:
         run: |
           sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" scp -o StrictHostKeyChecking=no compose.yaml ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:/home/user/frontEnd/compose.yaml
           sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" scp -o StrictHostKeyChecking=no Dockerfile ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:/home/user/frontEnd/Dockerfile
-        # sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" scp -o StrictHostKeyChecking=no nginx.conf ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:/home/user/frontEnd/nginx.conf
+          sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" scp -o StrictHostKeyChecking=no nginx.conf ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }}:/home/user/frontEnd/nginx.conf
         env:
           HOSTINGER_USER: ${{ secrets.HOSTINGER_USER }}
           HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
           HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD }}
 
-      # - name: Move nginx.conf to correct location
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.HOSTINGER_HOST }}
-      #     username: ${{ secrets.HOSTINGER_USER }}
-      #     password: ${{ secrets.HOSTINGER_PASSWORD }}
-      #     port: 22
-      #     script: |
-      #       sudo mkdir -p /etc/nginx/conf.d/
-      #       sudo mv /home/user/frontEnd/nginx.conf /etc/nginx/nginx.conf
+      - name: Move nginx.conf to correct location
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USER }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: 22
+          script: |
+            sudo mkdir -p /etc/nginx/conf.d/
+            sudo mv /home/user/frontEnd/nginx.conf /etc/nginx/nginx.conf
 
       - name: Deploy using Docker Compose
         uses: appleboy/ssh-action@master
