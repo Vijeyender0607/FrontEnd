@@ -5,4 +5,4 @@ services:
     image: maxbussinesssolutions/myreactapp:latest
     container_name: myapp-container
     ports:
-      - "80:80"
+      - "8081:80"
