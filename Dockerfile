@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:16-alpine
+FROM node:16-alpine AS build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -18,8 +18,7 @@ RUN npm run build
 
 # Use Nginx to serve the build output
 FROM nginx:alpine
-COPY --from=0 /app/dist /usr/share/nginx/html
-
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expose the port Nginx is serving on
 EXPOSE 80
