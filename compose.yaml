@@ -1,20 +1,8 @@
 version: '3.8'
 
 services:
-  vite-react-app:
+  app:
     image: maxbussinesssolutions/myreactapp:latest
-    container_name: vite-react-app
-    expose:
-      - "3000"
-    environment:
-      - NODE_ENV=production
-
-  nginx:
-    image: nginx:latest
-    container_name: nginx
+    container_name: myapp-container
     ports:
-      - "8090:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - vite-react-app
+      - "8081:80"
