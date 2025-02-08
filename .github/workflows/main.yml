@@ -66,16 +66,16 @@ jobs:
           HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
           HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD }}
 
-      - name: Move nginx.conf to correct location
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USER }}
-          password: ${{ secrets.HOSTINGER_PASSWORD }}
-          port: 22
-          script: |
-            sudo mkdir -p /etc/nginx/conf.d/
-            sudo mv /home/user/frontEnd/nginx.conf /etc/nginx/nginx.conf
+      # - name: Move nginx.conf to correct location
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.HOSTINGER_HOST }}
+      #     username: ${{ secrets.HOSTINGER_USER }}
+      #     password: ${{ secrets.HOSTINGER_PASSWORD }}
+      #     port: 22
+      #     script: |
+      #       sudo mkdir -p /etc/nginx/conf.d/
+      #       sudo mv /home/user/frontEnd/nginx.conf /etc/nginx/nginx.conf
 
       - name: Print NGINX Configuration
         uses: appleboy/ssh-action@master
