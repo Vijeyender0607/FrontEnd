@@ -49,8 +49,8 @@ jobs:
 
       - name: Create Directory on Server
         run: |
-          sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }} "mkdir -p /home/user/frontEnd"
           echo ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }} | sed -e 's/\(.\{3\}\).*/\1***/'
+          sshpass -p "${{ secrets.HOSTINGER_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }} "mkdir -p /home/user/frontEnd"
         env:
           HOSTINGER_USER: ${{ secrets.HOSTINGER_USER }}
           HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
