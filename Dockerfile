@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:16-alpine
+FROM node:16-alpine as build-stage
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -18,10 +18,19 @@ RUN npm run build
 
 # Use Nginx to serve the build output
 FROM nginx:alpine
-COPY --from=0 /app/dist /usr/share/nginx/html
 
-# Expose the port Nginx is serving on
-EXPOSE 80
+# Copy the build output from the previous stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+# Copy your Nginx configuration file
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy the SSL certificates
+COPY /path/to/ssl/certificates/fullchain.pem /etc/letsencrypt/live/maxitsolutions.in/fullchain.pem
+COPY /path/to/ssl/certificates/privkey.pem /etc/letsencrypt/live/maxitsolutions.in/privkey.pem
+
+# Expose the ports Nginx is serving on
+EXPOSE 80 443
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
