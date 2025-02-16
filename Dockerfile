@@ -18,7 +18,7 @@ RUN npm run build
 
 # Use Nginx to serve the build output
 FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist /var/www/html
 
 # Expose the port Nginx is serving on
 EXPOSE 80
