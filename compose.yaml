@@ -16,3 +16,4 @@ services:
     volumes:
       - /etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:/etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:ro
       - /etc/letsencrypt/live/maxitsolutions.in/privkey.pem:/etc/letsencrypt/live/maxitsolutions.in/privkey.pem:ro
+      - /home/maxitsolutions/htdocs/maxitsolutions.in/nginx.conf:/etc/nginx/nginx.conf:ro
