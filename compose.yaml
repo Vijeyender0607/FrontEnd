@@ -9,8 +9,7 @@ services:
     volumes:
       - /etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:/etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:ro
       - /etc/letsencrypt/live/maxitsolutions.in/privkey.pem:/etc/letsencrypt/live/maxitsolutions.in/privkey.pem:ro
-    depends_on:
-      - nginx
+    
 
   nginx:
     image: nginx:alpine
