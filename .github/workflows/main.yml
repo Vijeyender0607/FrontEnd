@@ -84,7 +84,7 @@ jobs:
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: 22
           script: |
-            cd /home/user/frontEnd
+            cd /home/maxitsolutions/htdocs/maxitsolutions.in
             docker-compose down
             docker volume prune -f
             docker network prune -f
