@@ -22,15 +22,15 @@ FROM nginx:alpine
 # Copy the build output from the previous stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
-# Copy your Nginx configuration file
-COPY nginx.conf /etc/nginx/nginx.conf
+# # Copy your Nginx configuration file
+# COPY nginx.conf /etc/nginx/nginx.conf
 
 # # Copy the SSL certificates
 # COPY /path/to/ssl/certificates/fullchain.pem /etc/letsencrypt/live/maxitsolutions.in/fullchain.pem
 # COPY /path/to/ssl/certificates/privkey.pem /etc/letsencrypt/live/maxitsolutions.in/privkey.pem
 
 # Expose the ports Nginx is serving on
-EXPOSE 80 443
+EXPOSE 3000
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
