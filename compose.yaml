@@ -6,6 +6,8 @@ services:
     container_name: myapp-container
     ports:
       - "8081:80"
+    depends_on:
+      - nginx
 
   nginx:
     image: nginx:alpine
