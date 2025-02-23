@@ -6,6 +6,9 @@ services:
     container_name: myapp-container
     ports:
       - "8081:80"
+    volumes:
+      - /etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:/etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:ro
+      - /etc/letsencrypt/live/maxitsolutions.in/privkey.pem:/etc/letsencrypt/live/maxitsolutions.in/privkey.pem:ro
     depends_on:
       - nginx
 
