@@ -6,7 +6,6 @@ services:
     container_name: myapp-container
     ports:
       - "3000:80"
-      - "3000:443" # Exposing port 443 for HTTPS
     volumes:
       - /etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:/etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:ro
       - /etc/letsencrypt/live/maxitsolutions.in/privkey.pem:/etc/letsencrypt/live/maxitsolutions.in/privkey.pem:ro
