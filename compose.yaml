@@ -5,7 +5,7 @@ services:
     image: maxbussinesssolutions/myreactapp:latest
     container_name: myapp-container
     ports:
-      - 8081:80
+      - 3000:80
     volumes:
       - /etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:/etc/letsencrypt/live/maxitsolutions.in/fullchain.pem:ro
       - /etc/letsencrypt/live/maxitsolutions.in/privkey.pem:/etc/letsencrypt/live/maxitsolutions.in/privkey.pem:ro
