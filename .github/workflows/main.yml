@@ -74,7 +74,7 @@ jobs:
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: 22
           script: |
-            cat /etc/nginx/nginx.conf
+            cat /home/maxitsolutions/htdocs/maxitsolutions.in/nginx.conf
 
       - name: Deploy using Docker Compose
         uses: appleboy/ssh-action@master
